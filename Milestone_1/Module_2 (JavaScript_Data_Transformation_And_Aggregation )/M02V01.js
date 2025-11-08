@@ -19,12 +19,12 @@ map.set(course2, {courseID: "Level 2"});
 // console.log(map.size) 
 // console.log(map.has(course1));
 
-map.forEach((value,key) => console.log("Key :", key, "Value :",value));
+// map.forEach((value,key) => console.log("Key :", key, "Value :",value));
 
-map.forEach((value,key) => (key.name = "Hello Friends" + key.name));
+map.forEach((value,key) => (key.name = "Hello Friends " + key.name));
 
-console.log(map);
-console.log(map.entries())
+// console.log(map);
+// console.log(map.entries())
 
 const course = [
     ["Programming Hero", "Level 1"],
