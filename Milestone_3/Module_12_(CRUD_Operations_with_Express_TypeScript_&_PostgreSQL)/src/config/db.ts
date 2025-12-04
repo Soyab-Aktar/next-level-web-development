@@ -1,16 +1,18 @@
 import { Pool } from "pg";
 import config from ".";
 
- export const pool = new Pool({
+export const pool = new Pool({
   connectionString: `${config.connection_str}`
 });
 
-const initDB = async() =>{
+const initDB = async () => {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    password TEXT NOT NULL,
     age INT,
     phone VARCHAR(20),
     address TEXT,
@@ -19,7 +21,7 @@ const initDB = async() =>{
     )
     `);
 
-    await pool.query(`
+  await pool.query(`
       CREATE TABLE IF NOT EXISTS todos(
       id SERIAL PRIMARY KEY,
       user_id INT REFERENCES users(id) ON DELETE CASCADE,
