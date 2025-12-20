@@ -15,3 +15,8 @@ select * from users as u right join posts as p on p.user_id = u.id
 --Full Join
 select * from posts as p full join users as u on p.user_id = u.id 
 select * from users as u full join posts as p on p.user_id = u.id 
+
+--Cross Join
+select * from posts cross join users
+
+--Natural Join
